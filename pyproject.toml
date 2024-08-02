@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "rag-llamaindex-pinecone-fastapi"
+version = "0.1.0"
+description = ""
+authors = ["π <pirayan20@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10,<3.13"
+llama-index = "^0.10.59"
+fastapi = "^0.112.0"
+uvicorn = "^0.30.4"
+pendulum = "^3.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
