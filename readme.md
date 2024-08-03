@@ -1,4 +1,4 @@
-# RAG Project Repository
+# RAG-Llamaindex-Pinecone-FastApi
 
 ## Overview
 This repository contains a Retriever-Reader project that integrates a Llama-index, Pinecone, and FastAPI. The project is designed to handle .pdf file ingestion, indexing, and querying through a user-friendly API.
