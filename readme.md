@@ -21,6 +21,7 @@ poetry install
   - `ingestion_pipeline.py`: Upserts .pdf files into Pinecone.
   - `create_index.py`: Creates an index in Pinecone.
   - LlamaParse is used for parsing .pdf files within these scripts.
+  - **Noted that: you would need to create scripts/documents/ folder for your .pdf file**
 
 - **app/**: Contains the FastAPI application.
   - `main.py`: The main entry point for the FastAPI server.
