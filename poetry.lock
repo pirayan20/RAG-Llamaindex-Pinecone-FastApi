@@ -168,22 +168,22 @@ files = [
 
 [[package]]
 name = "attrs"
-version = "23.2.0"
+version = "24.1.0"
 description = "Classes Without Boilerplate"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "attrs-23.2.0-py3-none-any.whl", hash = "sha256:99b87a485a5820b23b879f04c2305b44b951b502fd64be915879d77a7e8fc6f1"},
-    {file = "attrs-23.2.0.tar.gz", hash = "sha256:935dc3b529c262f6cf76e50877d35a4bd3c1de194fd41f47a2b7ae8f19971f30"},
+    {file = "attrs-24.1.0-py3-none-any.whl", hash = "sha256:377b47448cb61fea38533f671fba0d0f8a96fd58facd4dc518e3dac9dbea0905"},
+    {file = "attrs-24.1.0.tar.gz", hash = "sha256:adbdec84af72d38be7628e353a09b6a6790d15cd71819f6e9d7b0faa8a125745"},
 ]
 
 [package.extras]
-cov = ["attrs[tests]", "coverage[toml] (>=5.3)"]
-dev = ["attrs[tests]", "pre-commit"]
-docs = ["furo", "myst-parser", "sphinx", "sphinx-notfound-page", "sphinxcontrib-towncrier", "towncrier", "zope-interface"]
-tests = ["attrs[tests-no-zope]", "zope-interface"]
-tests-mypy = ["mypy (>=1.6)", "pytest-mypy-plugins"]
-tests-no-zope = ["attrs[tests-mypy]", "cloudpickle", "hypothesis", "pympler", "pytest (>=4.3.0)", "pytest-xdist[psutil]"]
+benchmark = ["cloudpickle", "hypothesis", "mypy (>=1.11.1)", "pympler", "pytest (>=4.3.0)", "pytest-codspeed", "pytest-mypy-plugins", "pytest-xdist[psutil]"]
+cov = ["cloudpickle", "coverage[toml] (>=5.3)", "hypothesis", "mypy (>=1.11.1)", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "pytest-xdist[psutil]"]
+dev = ["cloudpickle", "hypothesis", "mypy (>=1.11.1)", "pre-commit", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "pytest-xdist[psutil]"]
+docs = ["cogapp", "furo", "myst-parser", "sphinx", "sphinx-notfound-page", "sphinxcontrib-towncrier", "towncrier (<24.7)"]
+tests = ["cloudpickle", "hypothesis", "mypy (>=1.11.1)", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "pytest-xdist[psutil]"]
+tests-mypy = ["mypy (>=1.11.1)", "pytest-mypy-plugins"]
 
 [[package]]
 name = "beautifulsoup4"
@@ -975,6 +975,21 @@ llama-index-core = ">=0.10.7,<0.11.0"
 llama-parse = ">=0.4.0"
 
 [[package]]
+name = "llama-index-vector-stores-pinecone"
+version = "0.1.9"
+description = "llama-index vector_stores pinecone integration"
+optional = false
+python-versions = "<3.13,>=3.8.1"
+files = [
+    {file = "llama_index_vector_stores_pinecone-0.1.9-py3-none-any.whl", hash = "sha256:efddd4df93c50452d93b69abde681c7692039a8353275ca85aa9c7df47305fb6"},
+    {file = "llama_index_vector_stores_pinecone-0.1.9.tar.gz", hash = "sha256:50298d3abb25714ba10dcfe0c86927d4866a49e9326c1c4e18ba5ad652358167"},
+]
+
+[package.dependencies]
+llama-index-core = ">=0.10.11.post1,<0.11.0"
+pinecone-client = ">=3.2.2,<6.0.0"
+
+[[package]]
 name = "llama-parse"
 version = "0.4.9"
 description = "Parse files into RAG-Optimized formats."
@@ -1218,13 +1233,13 @@ files = [
 
 [[package]]
 name = "openai"
-version = "1.37.2"
+version = "1.38.0"
 description = "The official Python library for the openai API"
 optional = false
 python-versions = ">=3.7.1"
 files = [
-    {file = "openai-1.37.2-py3-none-any.whl", hash = "sha256:22dfcf48cd9ff1a6b1d8de09121261bc72315515a9faadad541be93a8bb1e961"},
-    {file = "openai-1.37.2.tar.gz", hash = "sha256:fd97cb235cfce0f7c902c64e58a5cd9fea19e7c180d9a4e2a2b8e533dbd9f424"},
+    {file = "openai-1.38.0-py3-none-any.whl", hash = "sha256:a19ef052f1676320f52183ae6f9775da6d888fbe3aec57886117163c095d9f7c"},
+    {file = "openai-1.38.0.tar.gz", hash = "sha256:30fb324bf452ecb1194ca7dbc64566a4d7aa054c6a5da857937ede7d517a220b"},
 ]
 
 [package.dependencies]
@@ -1518,6 +1533,56 @@ mic = ["olefile"]
 tests = ["check-manifest", "coverage", "defusedxml", "markdown2", "olefile", "packaging", "pyroma", "pytest", "pytest-cov", "pytest-timeout"]
 typing = ["typing-extensions"]
 xmp = ["defusedxml"]
+
+[[package]]
+name = "pinecone-client"
+version = "5.0.1"
+description = "Pinecone client and SDK"
+optional = false
+python-versions = "<4.0,>=3.8"
+files = [
+    {file = "pinecone_client-5.0.1-py3-none-any.whl", hash = "sha256:c8f7835e1045ba84e295f217a8e85573ffb80b41501bbc1af6d92c9631c567a7"},
+    {file = "pinecone_client-5.0.1.tar.gz", hash = "sha256:11c33ff5d1c38a6ce69e69fe532c0f22f312fb28d761bb30b3767816d3181d64"},
+]
+
+[package.dependencies]
+certifi = ">=2019.11.17"
+pinecone-plugin-inference = ">=1.0.3,<2.0.0"
+pinecone-plugin-interface = ">=0.0.7,<0.0.8"
+tqdm = ">=4.64.1"
+typing-extensions = ">=3.7.4"
+urllib3 = [
+    {version = ">=1.26.0", markers = "python_version >= \"3.8\" and python_version < \"3.12\""},
+    {version = ">=1.26.5", markers = "python_version >= \"3.12\" and python_version < \"4.0\""},
+]
+
+[package.extras]
+grpc = ["googleapis-common-protos (>=1.53.0)", "grpcio (>=1.44.0)", "grpcio (>=1.59.0)", "lz4 (>=3.1.3)", "protobuf (>=4.25,<5.0)", "protoc-gen-openapiv2 (>=0.0.1,<0.0.2)"]
+
+[[package]]
+name = "pinecone-plugin-inference"
+version = "1.0.3"
+description = "Embeddings plugin for Pinecone SDK"
+optional = false
+python-versions = "<4.0,>=3.8"
+files = [
+    {file = "pinecone_plugin_inference-1.0.3-py3-none-any.whl", hash = "sha256:bbdfe5dba99a87374d9e3315b62b8e1bbca52d5fe069a64cd6b212efbc8b9afd"},
+    {file = "pinecone_plugin_inference-1.0.3.tar.gz", hash = "sha256:c6519ba730123713a181c010f0db9d6449d11de451b8e79bec4efd662b096f41"},
+]
+
+[package.dependencies]
+pinecone-plugin-interface = ">=0.0.7,<0.0.8"
+
+[[package]]
+name = "pinecone-plugin-interface"
+version = "0.0.7"
+description = "Plugin interface for the Pinecone python client"
+optional = false
+python-versions = "<4.0,>=3.8"
+files = [
+    {file = "pinecone_plugin_interface-0.0.7-py3-none-any.whl", hash = "sha256:875857ad9c9fc8bbc074dbe780d187a2afd21f5bfe0f3b08601924a61ef1bba8"},
+    {file = "pinecone_plugin_interface-0.0.7.tar.gz", hash = "sha256:b8e6675e41847333aa13923cc44daa3f85676d7157324682dc1640588a982846"},
+]
 
 [[package]]
 name = "pydantic"
@@ -2145,13 +2210,13 @@ zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
 name = "uvicorn"
-version = "0.30.4"
+version = "0.30.5"
 description = "The lightning-fast ASGI server."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "uvicorn-0.30.4-py3-none-any.whl", hash = "sha256:06b00e3087e58c6865c284143c0c42f810b32ff4f265ab19d08c566f74a08728"},
-    {file = "uvicorn-0.30.4.tar.gz", hash = "sha256:00db9a9e3711a5fa59866e2b02fac69d8dc70ce0814aaec9a66d1d9e5c832a30"},
+    {file = "uvicorn-0.30.5-py3-none-any.whl", hash = "sha256:b2d86de274726e9878188fa07576c9ceeff90a839e2b6e25c917fe05f5a6c835"},
+    {file = "uvicorn-0.30.5.tar.gz", hash = "sha256:ac6fdbd4425c5fd17a9fe39daf4d4d075da6fdc80f653e5894cdc2fd98752bee"},
 ]
 
 [package.dependencies]
@@ -2347,4 +2412,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10,<3.13"
-content-hash = "d4dccc937cdf2287929a539f16ff1aeaefbe135e3b8401264fcf8f96e06ca821"
+content-hash = "8ab7545d36317b1fac7417229c0745c9e81e10fa7ec0d918bb368cc7924fe15e"

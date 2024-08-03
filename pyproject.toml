@@ -11,6 +11,8 @@ llama-index = "^0.10.59"
 fastapi = "^0.112.0"
 uvicorn = "^0.30.4"
 pendulum = "^3.0.0"
+llama-index-vector-stores-pinecone = "^0.1.8"
+llama-parse = "^0.4.9"
 
 
 [build-system]
