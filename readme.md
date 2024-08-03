@@ -12,8 +12,6 @@ This repository contains a Retriever-Reader project that integrates a Llama-inde
 Clone the repository and install the dependencies using Poetry:
 
 ```bash
-git clone <repository-url>
-cd <repository-name>
 poetry install
 ```
 
