@@ -28,9 +28,13 @@ poetry install
   - `./docker-entrypoint.sh`: Script to start the FastAPI application.
 
 ## Running the Application
+First, give the `.sh` file a permission
+```bash
+chmod +x {your_path}/docker-entrypoint.sh
+```
 To run the FastAPI application, execute the following script from the root of the project:
 ```bash
-./app/docker-entrypoint.sh
+./docker-entrypoint.sh
 ```
 This will start the FastAPI server. You can then access the API documentation and interact with the API through the following URL:
 ```bash
