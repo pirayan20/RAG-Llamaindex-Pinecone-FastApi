@@ -4,19 +4,18 @@ from llama_index.core import SimpleDirectoryReader
 from llama_index.core.ingestion import IngestionPipeline
 from llama_index.embeddings.openai import OpenAIEmbedding
 from scripts.create_index import get_vector_store
+from scripts.config import app_config
 
 embed_model = OpenAIEmbedding(
-    model='text-embedding-3-large', 
-    dimensions=1024
+    model=app_config.embedmodel.name, 
+    dimensions=app_config.pinecone.dimensions
 )
-
-parsing_instruction = """your parsing instruction"""
 
 def process_pdf():
     parser = LlamaParse(
         api_key=os.getenv("LLAMA_CLOUD_API_KEY"),
-        parsing_instruction=parsing_instruction,
-        result_type="text",
+        parsing_instruction=app_config.prompts.parsing_instruction,
+        result_type=app_config.prompts.parse_type,
     )
     file_extractor = {".pdf": parser}
     reader = SimpleDirectoryReader("./scripts/documents", file_extractor=file_extractor)
@@ -25,7 +24,7 @@ def process_pdf():
     return documents
 
 documents = process_pdf()
-vector_store = get_vector_store('myproject')
+vector_store = get_vector_store(app_config.pinecone.index)
 
 pipeline = IngestionPipeline(
 	transformations=[

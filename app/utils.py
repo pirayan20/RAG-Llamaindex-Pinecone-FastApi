@@ -1,14 +1,15 @@
 import os
 from pinecone import Pinecone
 from llama_index.vector_stores.pinecone import PineconeVectorStore
-from llama_index.core import VectorStoreIndex, ServiceContext
+from llama_index.core import VectorStoreIndex
 from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.llms.openai import OpenAI
 from llama_index.core import Settings
+from app.config import app_config
 
-Settings.llm = OpenAI(model='gpt-4o-mini', temperature=0)
+Settings.llm = OpenAI(model=app_config.models.main_llm, temperature=0)
 Settings.embed_model = OpenAIEmbedding(
-    model='text-embedding-3-large', dimensions=1024
+    model=app_config.models.openai_embeddings, dimensions=app_config.models.dimensions
 )
 pc = Pinecone(api_key=os.getenv('PINECONE_API_KEY'))
 

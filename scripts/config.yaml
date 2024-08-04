@@ -1,0 +1,14 @@
+pinecone:
+  index: 'myproject'
+  dimensions: 1024
+  metrics: 'cosine'
+
+embed_model:
+  name: 'text-embedding-3-large'
+
+prompts:
+  parsing_instruction: |
+    The provided documents is a descriptive information about a product. 
+    All the table in the document should not be included, but instead it should be interpreted as to how it's computed and how it's related to a products.
+    Try to make a comprehensive information about this product.
+  parse_type: 'text'

@@ -1,0 +1,9 @@
+pinecone:
+  index: 'myproject'
+
+models:
+  openai_embeddings: 'text-embedding-3-large'
+  main_llm: 'gpt-4o-mini'
+  dimensions: 1024
+
+verbose: false
