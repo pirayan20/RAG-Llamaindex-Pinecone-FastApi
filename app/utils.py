@@ -2,6 +2,7 @@ import os
 from pinecone import Pinecone
 from llama_index.vector_stores.pinecone import PineconeVectorStore
 from llama_index.core import VectorStoreIndex
+from llama_index.core.query_engine import BaseQueryEngine
 from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.llms.openai import OpenAI
 from llama_index.core import Settings
@@ -21,7 +22,7 @@ def init_index(index_name: str) -> VectorStoreIndex:
     return index
 
 
-def init_engine(index_name: str):
+def init_engine(index_name: str) -> BaseQueryEngine:
     index = init_index(index_name)
     query_engine = index.as_query_engine()
     return query_engine
