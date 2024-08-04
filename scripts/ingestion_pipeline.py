@@ -7,9 +7,9 @@ from scripts.create_index import get_vector_store
 from scripts.config import app_config
 
 embed_model = OpenAIEmbedding(
-    model=app_config.embedmodel.name, 
-    dimensions=app_config.pinecone.dimensions
+    model=app_config.embedmodel.name, dimensions=app_config.pinecone.dimensions
 )
+
 
 def process_pdf():
     parser = LlamaParse(
@@ -23,14 +23,10 @@ def process_pdf():
 
     return documents
 
+
 documents = process_pdf()
 vector_store = get_vector_store(app_config.pinecone.index)
 
-pipeline = IngestionPipeline(
-	transformations=[
-		embed_model
-	],
-    vector_store=vector_store
-)
+pipeline = IngestionPipeline(transformations=[embed_model], vector_store=vector_store)
 
 nodes = pipeline.run(documents=documents)

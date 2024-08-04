@@ -7,13 +7,13 @@ from app.log import CustomJsonFormatter
 load_dotenv()
 
 # Get the environment variable
-env = os.getenv('ENVIRONMENT', 'local')
+env = os.getenv("ENVIRONMENT", "local")
 
 # Configure logger
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
-if env == 'prod':
+if env == "prod":
     handler = logging.StreamHandler(sys.stdout)
     formatter = CustomJsonFormatter()
     handler.setFormatter(formatter)
@@ -25,4 +25,3 @@ else:
 
 logging.getLogger("httpx").setLevel(logging.WARNING)
 logging.getLogger("openai").setLevel(logging.WARNING)
-

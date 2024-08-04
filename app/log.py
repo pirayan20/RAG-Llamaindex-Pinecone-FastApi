@@ -34,4 +34,3 @@ class CustomJsonFormatter(jsonlogger.JsonFormatter):
 
 def log_request(request: str):
     logger.info({"message": "user_query", "query": request})
-
