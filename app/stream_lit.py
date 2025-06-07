@@ -25,7 +25,7 @@ if "messages" not in st.session_state.keys():  # Initialize the chat messages hi
 
 @st.cache_resource(show_spinner=True)
 def load_data():
-    reader = SimpleDirectoryReader(input_dir="./scripts/documents")
+    reader = SimpleDirectoryReader(input_dir="./app/scripts/documents")
     docs = reader.load_data()
     Settings.llm = OpenAI(
         model="gpt-4o-mini",
