@@ -5,12 +5,17 @@ WORKDIR /app
 # Install poetry
 RUN pip install poetry
 
-# Copy project files
+# Copy poetry configuration files
 COPY pyproject.toml poetry.lock ./
-COPY . ./app/
 
 # Install dependencies
 RUN poetry install --no-interaction --no-ansi --no-root
+
+# Copy the application code
+COPY app/ ./app/
+
+# Copy the documents directory to the expected location
+COPY scripts/documents/ ./app/scripts/documents/
 
 # Copy environment variables
 COPY .env ./
@@ -19,4 +24,4 @@ COPY .env ./
 EXPOSE 8501
 
 # Command to run the Streamlit application
-CMD ["poetry", "run", "streamlit", "run", "app/app/stream_lit.py", "--server.port=8501", "--server.address=0.0.0.0"]
+CMD ["poetry", "run", "streamlit", "run", "app/stream_lit.py", "--server.port=8501", "--server.address=0.0.0.0"]
